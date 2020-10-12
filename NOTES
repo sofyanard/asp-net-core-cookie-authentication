@@ -1,0 +1,25 @@
+AspNetCoreUserLogin
+
+Membuat sistem user registration, login dll menggunakan ASP.Net Core, tanpa ASP.Net Identity
+
+Reference:
+https://kenhaggerty.com/articles/article/aspnet-core-31-users-without-identity
+
+Step:
+1. Create new project, ASP.Net Core MVC Web Application, no authentication
+2. Install Nuget Package: Microsoft.AspNetCore.Authentication.Cookies
+3. Add new model: ApplicationUser
+4. Create ApplicationUser related table to the database
+5. Install Nuget Package:
+   * Microsoft.EntityFrameworkCore
+   * Microsoft.EntityFrameworkCore.SqlServer
+   * Microsoft.EntityFrameworkCore.Tools
+6. Add ApplicationDBContext
+7. Add Connection String to appsettings.json
+8. Add configuration to Startup.cs void ConfigureServices:
+   * services.AddAuthentication .....
+   * services.AddDbContext .....
+   Add configuration to Startup.cs void Configure:
+   * app.UseCookiePolicy .....
+   * app.UseAuthentication();
+9. ... add controllers, views, etc ...
